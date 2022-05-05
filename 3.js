@@ -28,38 +28,37 @@ let personagem = {
         this.vital++;
     },
 
-    retorno: function(){
-        let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO.');
-            if(volta =='s'){
-               
-            }else if(volta == 'n'){
-                console.log('--FIM--');
-                
-            }
-    },
-
     resultado: function(){
-        if(this.cansaco >= 10){
+        if(this.cansaco >= 20){
             console.log('VOCÊ FOI ATÉ O FIM DE SUAS FORÇAS - GAME-OVER');
-            personagem.retorno();
+            let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
+            if(volta == 's'){
+                iniciar();
+            }else{
+                console.log('--FIM--');
+                return true;
+            }
            
         }else if(this.vital <= 1){
             console.log('SUA ENERGIA VITAL ACABOU - GAME-OVER');
-            personagem.retorno();
+            let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
+            if(volta == 's'){
+                iniciar();
+            }else{
+                console.log('--FIM--');
+                return true;
+            }
            
 
         }else if(this.peso >= 100 ){
             console.log('VOCÊ ESTÁ UMA BOLHA DE GORDO JIMI - GAME-OVER');
-            personagem.retorno();
+            
             
          }
+        
     },
 
-    // quebra: function(){
-    //     break;
-    // },
-
-//status apresentado com condição manha tarde  e noite
+    //status apresentado com condição manha tarde  e noite
     bio: function(){
         if (this.horas >= 19){
             console.log(`
@@ -103,23 +102,13 @@ let personagem = {
     console.log('---JIMI ESTÁ EM SUAS MÃOS, QUAL SERÁ A ESCOLHA PARA A ROTINA DIÁRIA DE JIMI---');
     personagem.bio();
 
-// lista de escolhas para game-over
+// lista de escolhas trabalho para game-over
+
 let lista = [];
-// // if(lista >= 3){
-// //     console.log('gameover');
-// // }
-
-// let repeticao = 0;
-// for(let i=0;i =='trabalhar';i++){
-//     repeticao++;
-// }
-// if(repeticao >= 2){
-//     console.log('GAME-OVER');
-// }
-
 
 // escolhas
-
+iniciar();
+function iniciar(){
 while(true){ 
     
     let escolha = prompt('QUAL SERÁ A SUA ESCOLHA? - trabalhar - comer - ensaio - dormir - sair :   ');
@@ -132,27 +121,51 @@ while(true){
     if (escolha == 'trabalhar'){
         personagem.passaTempo(8)
         trabalhar();
-        personagem.resultado();
+        
+        let fimDeJogo = personagem.resultado();
+        if(fimDeJogo == true){
+            break;
+        }
         lista.push(escolha);
     } else if (escolha == 'comer'){
         personagem.passaTempo(1)
         comer();
-        personagem.resultado();
         
+        let fimDeJogo = personagem.resultado();
+        if(fimDeJogo == true){
+            break;
+        }
     } else if (escolha == 'ensaio'){
         personagem.passaTempo(3)
         ensaio();
-        personagem.resultado();
+        let fimDeJogo = personagem.resultado();
+        if(fimDeJogo == true){
+            break;
+        }
         
     } else if (escolha == 'dormir'){
         personagem.passaTempo(8)
         dormir();
+        let fimDeJogo = personagem.resultado();
+        if(fimDeJogo == true){
+            break;
+        }
     } else if (escolha == 'sair'){
         break;
     } 
-    console.log(lista);
+// loop c tiver 3 trabalhar kebra
+    let resposta = 0 
+for(let i=0; i<lista.length; i++){
+    if(lista[i] == 'trabalhar'){
+        resposta++;
+ }
+} 
+if(resposta == 3){
+    console.log('GAME-OVER - MORREU DE TANTO TRABALHAR');
+    break;
 }
-
+}
+}
 
 // funções das escolhas
 function dormir(){
