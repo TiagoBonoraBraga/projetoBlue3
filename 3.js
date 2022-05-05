@@ -31,6 +31,7 @@ let personagem = {
     resultado: function(){
         if(this.cansaco >= 20){
             console.log('VOCÊ FOI ATÉ O FIM DE SUAS FORÇAS - GAME-OVER');
+            console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
                 iniciar();
@@ -41,6 +42,7 @@ let personagem = {
            
         }else if(this.vital <= 1){
             console.log('SUA ENERGIA VITAL ACABOU - GAME-OVER');
+            console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
                 iniciar();
@@ -52,7 +54,14 @@ let personagem = {
 
         }else if(this.peso >= 100 ){
             console.log('VOCÊ ESTÁ UMA BOLHA DE GORDO JIMI - GAME-OVER');
-            
+            console.log();
+            let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
+            if(volta == 's'){
+                iniciar();
+            }else{
+                console.log('--FIM--');
+                return true;
+            }
             
          }
         
@@ -154,7 +163,7 @@ while(true){
         break;
     } 
 // loop c tiver 3 trabalhar kebra
-    let resposta = 0 
+let resposta = 0 
 for(let i=0; i<lista.length; i++){
     if(lista[i] == 'trabalhar'){
         resposta++;
@@ -162,8 +171,18 @@ for(let i=0; i<lista.length; i++){
 } 
 if(resposta == 3){
     console.log('GAME-OVER - MORREU DE TANTO TRABALHAR');
+    console.log();
+    volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
+            if(volta == 's'){
+                iniciar();
+            }else{
+                console.log('--FIM--');
+                return true;
+            }
     break;
+    
 }
+     
 }
 }
 
@@ -396,7 +415,7 @@ function comer(){
 }
     
 function chazinho(){
-        console.log('ATÉ QUE ENFIM UMA OPÇÃO SAUDADEL JIMI...  ');
+        
         console.log();
         console.log('---DIGITE S PARA SIM E N PARA NÃO---')
         console.log();
@@ -467,9 +486,9 @@ function tapas(){
 }
 
 function jokenpo(){    
-        console.log('                   ---BÔNUS - JOKENPÔ---');
+        console.log('                    ---BÔNUS - JOKENPÔ---');
         console.log('             ...JÁ QUE ESTAMOS COM TEMPO JIMI...');
-        console.log('...VAMOS JOGAR UMA PARTIDA DE JOKEMPÔ ANTES DE IR PARA O TRABALHO...');
+        console.log('          ...VAMOS JOGAR UMA PARTIDA DE JOKEMPÔ ...');
         console.log('              ...APERTE O ENTER PARA COMEÇAR...');
         prompt();
     
