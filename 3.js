@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-// status e dias e horas com função de incremento
+// status - dias e horas com método de incremento, resultado, bio e passa-tempo.
 let cansaco = 0;
 let vital = 10;
 let peso = 80;
@@ -7,8 +7,7 @@ let personagem = {
     cansaco: cansaco,
     vital: vital,
     peso: peso,
-    
-    
+        
     horas: 6,
     dia: 1,
 
@@ -50,8 +49,7 @@ let personagem = {
                 console.log('--FIM--');
                 return true;
             }
-           
-
+        
         }else if(this.peso >= 100 ){
             console.log('VOCÊ ESTÁ UMA BOLHA DE GORDO JIMI - GAME-OVER');
             console.log();
@@ -62,12 +60,10 @@ let personagem = {
                 console.log('--FIM--');
                 return true;
             }
-            
-         }
-        
+        }
     },
 
-    //status apresentado com condição manha tarde  e noite
+    //status apresentado com condição manha, tarde e noite.
     bio: function(){
         if (this.horas >= 19){
             console.log(`
@@ -136,6 +132,7 @@ while(true){
             break;
         }
         lista.push(escolha);
+
     } else if (escolha == 'comer'){
         personagem.passaTempo(1)
         comer();
@@ -144,6 +141,7 @@ while(true){
         if(fimDeJogo == true){
             break;
         }
+
     } else if (escolha == 'ensaio'){
         personagem.passaTempo(3)
         ensaio();
@@ -162,6 +160,7 @@ while(true){
     } else if (escolha == 'sair'){
         break;
     } 
+
 // loop c tiver 3 trabalhar kebra
 let resposta = 0 
 for(let i=0; i<lista.length; i++){
@@ -277,8 +276,7 @@ function trabalhar(){
     if(levantar == 's'){
        
         console.log(`          Ok - HOJE ACORDOU MAIS CEDO JIMI, PARABÉNS...`);
-        console.log(`...BORA TOMAR UM BELO CAFÉ DA MANHÃ, POIS SACO VAZIO NÃO PARA EM PÉ...`);
-        personagem.comer();
+        personagem.energia();
         jokenpo();
     
     
@@ -437,6 +435,7 @@ function chazinho(){
 }
     
 function burguer(){
+    console.log();
         console.log('DELÍCIA  DE HAMBURGÃO JIMI');
         console.log();
         console.log('---DIGITE S PARA SIM E N PARA NÃO---')
