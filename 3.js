@@ -39,7 +39,7 @@ let personagem = {
                 return true;
             }
            
-        }else if(this.vital <= 1){
+        }else if(this.vital <= 0){
             console.log('SUA ENERGIA VITAL ACABOU - GAME-OVER');
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
@@ -168,8 +168,8 @@ for(let i=0; i<lista.length; i++){
         resposta++;
  }
 } 
-if(resposta == 3){
-    console.log('GAME-OVER - MORREU DE TANTO TRABALHAR');
+if(resposta == 5){
+    console.log('GAME-OVER - TRABALHOU POR 3 TURNOS SEM PARAR -MORREU DE TANTO TRABALHAR');
     console.log();
     volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
