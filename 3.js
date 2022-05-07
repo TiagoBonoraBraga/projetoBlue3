@@ -33,6 +33,7 @@ let personagem = {
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
+               this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
@@ -44,6 +45,7 @@ let personagem = {
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
+               this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
@@ -55,12 +57,19 @@ let personagem = {
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
+                this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
                 return true;
             }
         }
+    },
+    // reset status
+    resetStatus: function(){
+        this.cansaco = 0;
+        this.vital = 10;
+        this.peso = 80;
     },
 
     //status apresentado com condição manha, tarde e noite.
@@ -101,11 +110,7 @@ let personagem = {
 }
 
 
-    console.log('---BEM VINDO AO DIA DO JIMI---');
-    console.log(' \x1b[31m ---PRESS ENTER TO CONTINUE--- \x1b[0m');
-    prompt();
-    console.log('---JIMI ESTÁ EM SUAS MÃOS, QUAL SERÁ A ESCOLHA PARA A ROTINA DIÁRIA DE JIMI---');
-    personagem.bio();
+    
 
 // lista de escolhas trabalho para game-over
 
@@ -551,3 +556,4 @@ function jokenpo(){
         console.log(' --- FIM --- ');
     }
 }
+
