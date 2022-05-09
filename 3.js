@@ -109,7 +109,11 @@ let personagem = {
    
 }
 
-
+console.log('  ---BEM VINDO AO DIA DO JIMI---');
+console.log(' \x1b[31m ---PRESS ENTER TO CONTINUE--- \x1b[0m');
+prompt();
+console.log('---JIMI ESTÁ EM SUAS MÃOS, AJUDE-O A ESCOLHER SUA ROTINA DIÁRIA---');
+console.log();
     
 
 // lista de escolhas trabalho para game-over
@@ -174,10 +178,11 @@ for(let i=0; i<lista.length; i++){
  }
 } 
 if(resposta == 5){
-    console.log('GAME-OVER - TRABALHOU POR 3 TURNOS SEM PARAR -MORREU DE TANTO TRABALHAR');
+    console.log('GAME-OVER - TRABALHOU POR 5 TURNOS - MORREU DE TANTO TRABALHAR');
     console.log();
     volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
+                this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
@@ -430,12 +435,13 @@ function chazinho(){
             }
             
             if(polvilho == 's'){
-                console.log('QUE APETITE JIMI...');
+                console.log('DELÍCIA NÉ JIMI...');
                 console.log();
                 personagem.comer();
-                personagem.energia();
+                
             }else if( polvilho == 'n'){
                 console.log('OPA COMEÇOU O REGIME ENTÃO...KKK');
+                personagem.energia();
             }
 }
     
@@ -533,10 +539,12 @@ function jokenpo(){
         if((respostaUsuario == 'pedra' && respostaComputador == 'papel') || (respostaUsuario == 'papel'  && respostaComputador == 'tesoura' ) || (respostaUsuario == 'tesoura'  && respostaComputador == 'pedra' )){
             pontosComputador++;
             console.log(' \x1b[31m ---COMPUTADOR VENCEU--- \x1b[0m');
+            
         
         } else if((respostaUsuario == 'pedra' && respostaComputador == 'tesoura') || (respostaUsuario == 'tesoura'  && respostaComputador == 'papel' ) || (respostaUsuario == 'papel'  && respostaComputador == 'pedra' )){
            pontosUsuario++;
            console.log(' \x1b[31m ---VOCÊ VENCEU - PARABÉNS--- \x1b[0m');
+           this.vital++;
     
         }else if((respostaUsuario == 'pedra' && respostaComputador == 'pedra') || (respostaUsuario == 'papel' && respostaComputador == 'papel') || (respostaUsuario == 'tesoura' && respostaComputador == 'tesoura')){
         console.log(' \x1b[31m ---EMPATE--- \x1b[0m');
