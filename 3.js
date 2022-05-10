@@ -289,13 +289,13 @@ function trabalhar(){
     if(levantar == 's'){
        
         console.log(`          Ok - HOJE ACORDOU MAIS CEDO JIMI, PARABÉNS...`);
-        personagem.energia();
         jokenpo();
     
     
         }else if(levantar == 'n') {
             console.log('CORRE JIMI, VAI SER DESPEDIDO.... PEGUE O CARRO E RUN JIMI.... ');
             personagem.cansado();
+            personagem.energia();
         }
     
     console.log();
@@ -368,6 +368,7 @@ function trabalhar(){
             }else if(comidinha == 'n'){
                 console.log('CUIDADO PARA NÃO FICAR FRACO JIMI...');
                 personagem.cansado();
+                personagem.energia();
             }
         console.log();
         console.log('---FALTA POUCO PARA ACABAR O HORARIO DE TRABAHO---');
