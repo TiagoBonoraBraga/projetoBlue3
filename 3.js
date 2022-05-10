@@ -3,13 +3,14 @@ const prompt = require('prompt-sync')();
 let cansaco = 0;
 let vital = 10;
 let peso = 80;
+let horas = 6;
+let dia = 1;
 let personagem = {
     cansaco: cansaco,
     vital: vital,
     peso: peso,
-        
-    horas: 6,
-    dia: 1,
+    horas: horas,
+    dia: dia,
 
     comer: function(){
         this.peso++;
@@ -33,7 +34,7 @@ let personagem = {
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
-               this.resetStatus();
+                this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
@@ -45,7 +46,7 @@ let personagem = {
             console.log();
             let volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
-               this.resetStatus();
+                this.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
@@ -70,6 +71,8 @@ let personagem = {
         this.cansaco = 0;
         this.vital = 10;
         this.peso = 80;
+        this.hora = 6;
+        this.dia = 1;
     },
 
     //status apresentado com condição manha, tarde e noite.
@@ -182,7 +185,7 @@ if(resposta == 5){
     console.log();
     volta = prompt('DESEJA JOGAR NOVAMENTE? DIGITE s PARA SIM E n PARA NÃO:  ');
             if(volta == 's'){
-                this.resetStatus();
+                personagem.resetStatus();
                 iniciar();
             }else{
                 console.log('--FIM--');
